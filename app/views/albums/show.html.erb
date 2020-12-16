@@ -1,0 +1,7 @@
+<h1>Album Show Page</h1>
+
+<%= simple_form_for(@album) do |f| %>
+  <!-- [...] -->
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <!-- [...] -->
+<% end %>

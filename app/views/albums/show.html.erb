@@ -3,5 +3,12 @@
 <%= simple_form_for(@album) do |f| %>
   <!-- [...] -->
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.button :submit %>
   <!-- [...] -->
+<% end %>
+
+<% @album.photos.each do |photo| %>
+  <ul>
+    <li><%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %></li>
+  </ul>
 <% end %>

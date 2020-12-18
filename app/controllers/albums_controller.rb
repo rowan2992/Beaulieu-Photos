@@ -1,23 +1,23 @@
 class AlbumsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show, :edit, :update ]
+  before_action :find_album, only: [ :show, :edit, :update ]
 
   def show
-    @album = Album.find(params[:id])
-  end
-
-  def edit
-    @album = Album.find(params[:id])
   end
 
   def update
-    @album = Album.find(params[:id])
-
-    if @album.update(album_params)
-      redirect_to root_path
+    if @album.photos.attach(album_params[:photos])
+      redirect_to album_path(@album)
     end
+  end
+  
+  private
+  
+  def find_album
+    @album = Album.find(params[:id])
   end
 
   def album_params
-    params.require(:album).permit(:title, :body, photos: [])
+    params.require(:album).permit(photos: [])
   end
 end

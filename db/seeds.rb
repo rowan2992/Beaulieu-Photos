@@ -1,7 +1,25 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
+
+url = "https://res.cloudinary.com/dqla2kqej/image/upload/v1608321180/bftoycw4htbsihphh4xk.jpg"
+file = URI.open(url)
+
+album = Album.new
+album.photos.attach(io: file, filename: 'buffalo.jpg', content_type: 'image/jpg')
+if album.save
+  puts "album 1 created"
+end
+
+if album.photos.attached?
+  puts "photo 1 attached"
+end
+
+url = "https://res.cloudinary.com/dqla2kqej/image/upload/v1608148757/850pvubpyhaehthcbxrbgsmkrco7.jpg"
+file = URI.open(url)
+
+album = Album.last
+album.photos.attach(io: file, filename: 'louise.jpg', content_type: 'image/jpg')
+if album.save
+  puts "album saved"
+end
+
+puts "#{album.photos.count} photos attached"

@@ -5,9 +5,6 @@ class AlbumsController < ApplicationController
   def show
   end
 
-  def edit
-  end
-
   def update
     if @album.photos.attach(album_params[:photos])
       redirect_to album_path(@album)

@@ -3,6 +3,7 @@ class AlbumsController < ApplicationController
   before_action :find_album, only: [ :show, :edit, :update ]
 
   def new
+    @album = Album.new
   end
 
   def create

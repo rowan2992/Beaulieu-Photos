@@ -24,9 +24,10 @@ class AlbumsController < ApplicationController
 
   def update
     @album.update(name: album_params[:name], description: album_params[:description])
-    if @album.photos.attach(album_params[:photos])
-      redirect_to album_path(@album)
+    if album_params[:photos].present?
+      @album.photos.attach(album_params[:photos])
     end
+    redirect_to album_path(@album)
   end
   
   private

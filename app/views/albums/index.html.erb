@@ -1,4 +1,5 @@
 <% @albums.each do |album| %>
   <li><%= album.name %></li>
   <li><%= album.description %></li>
+  <%= link_to "Edit album", album_path(album) %>
 <% end %>

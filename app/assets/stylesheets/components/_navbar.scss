@@ -1,12 +1,40 @@
-.navbar-lewagon {
+.home-navbar {
+  padding: 0 80px;
+  width: 100%;
+  height: 80px;
+  background: black;
+  transition: 0.5s background-color ease;
+  z-index: 1000;
+  display: flex;
   justify-content: space-between;
-  background: white;
+  align-items: center;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    display: inline;
+    margin-right: 24px;
+  }
+
+  .navbar-albums-center {
+    display: flex;
+    border: solid 2px white;
+    align-items: right;
+
+    .av-link {
+      color: white;
+    }
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.home-navbar-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: transparent;
+  z-index: 900;
 }

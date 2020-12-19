@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show, :edit, :update, :new, :create ]
-  before_action :find_album, only: [ :show, :edit, :update ]
+  before_action :find_album, only: [ :show, :edit, :update, :destroy ]
 
   def new
     @album = Album.new
@@ -28,6 +28,12 @@ class AlbumsController < ApplicationController
       @album.photos.attach(album_params[:photos])
     end
     redirect_to album_path(@album)
+  end
+
+  def destroy
+    if @album.destroy
+      redirect_to albums_path
+    end
   end
   
   private

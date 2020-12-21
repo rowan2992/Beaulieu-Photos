@@ -1,11 +1,21 @@
-<div class="home-navbar-container">
-  <div class="home-navbar">
+<div class="navbar-container">
+  
+  <div class="navbar">
 
-  <div class="navbar-options-right">
-    <ul>
-      <li><%= link_to "Home", root_path, class: "av-link" %></li>
-      <li><%= link_to "Albums", albums_path, class: "av-link" %></li>
-      <li><%= link_to "About", albums_path, class: "av-link" %></li>
-    </ul>
-  </div>
+    <div class="navbar-title-left">
+      <h1>Keegan Beaulieu</h1>
+    </div>
+
+    <div class="navbar-albums-center">
+      <ul>
+        <li><%= link_to "Mountains", root_path, class: "av-link" %></li>
+        <li><%= link_to "Wildlife", albums_path, class: "av-link" %></li>
+        <li><%= link_to "Adventure", albums_path, class: "av-link" %></li>
+      </ul>
+    </div>
+
+    <div class="navbar-title-right">
+      <p>About</p>
+    </div>
+
 </div>

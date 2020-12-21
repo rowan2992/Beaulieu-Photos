@@ -20,8 +20,9 @@ class AlbumsController < ApplicationController
 
   def destroy_photo
     @photo = ActiveStorage::Blob.find_signed(params[:id])
+    @album = Album.find(@photo.attachments.first.record_id)
     @photo.attachments.first.purge
-    raise
+    redirect_to @album
   end
 
   def index

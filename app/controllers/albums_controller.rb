@@ -18,6 +18,12 @@ class AlbumsController < ApplicationController
   def show
   end
 
+  def destroy_photo
+    @photo = ActiveStorage::Blob.find_signed(params[:id])
+    @photo.attachments.first.purge
+    raise
+  end
+
   def index
     @albums = Album.all
   end

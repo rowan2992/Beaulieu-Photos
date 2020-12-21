@@ -3,14 +3,14 @@
   <div class="navbar">
 
     <div class="navbar-title-left">
-      <h1>Keegan Beaulieu</h1>
+      <%= link_to "Keegan Beaulieu", root_path, class: "title-link" %>
     </div>
 
     <div class="navbar-albums-center">
       <ul>
-        <li><%= link_to "Mountains", root_path, class: "av-link" %></li>
-        <li><%= link_to "Wildlife", albums_path, class: "av-link" %></li>
-        <li><%= link_to "Adventure", albums_path, class: "av-link" %></li>
+        <% Album.all.each do |album| %>
+          <li><%= link_to album.name, album_path(album), class: "av-link" %></li>
+        <% end %>
       </ul>
     </div>
 

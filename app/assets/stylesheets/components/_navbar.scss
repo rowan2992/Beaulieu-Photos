@@ -21,6 +21,7 @@
       color: white;
       font-size: 24px;
       margin: 0;
+      text-decoration: none;
     }
   }
   
@@ -37,6 +38,9 @@
       li {
         display: inline;
         padding: 0 40px 0 40px;
+        a {
+          text-decoration: none;
+        }
       }
     }
     .av-link {

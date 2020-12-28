@@ -5,8 +5,46 @@
   <%= f.input :description %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.button :submit %>
-  
 <% end %>
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+<style>
+  .carousel {
+    background: transparent;
+  }
+
+  .carousel-cell {
+    width: 66%;
+    height: 800px;
+    margin-right; 10px;
+    counter-increment: carousel-cell;
+  }
+
+  .carousel-cell:before{
+    display: block;
+    text-align: center;
+    content: counter(carousel-cell);
+    line-height: 400px;
+    font-size: 80px;
+    color: transparent;
+  }
+</style>
+
+<div class="carousel" data-flickity>
+  <% Album.first.photos.each do |photo| %>
+    <div class="carousel-cell" style="background-image: url('<%= cl_image_path photo.key, crop: :fill %>')">
+      <%= link_to icon('fas', 'trash-alt'), destroy_photo_album_path(photo.signed_id), method: :delete, data: { confirm: 'Are you sure?' }, class: "post-delete-icon" %>
+    </div>
+  <% end %>
+</div>
+
+
 
 <% @album.photos.each do |photo| %>
   <ul>

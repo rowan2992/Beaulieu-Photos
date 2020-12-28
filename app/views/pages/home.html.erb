@@ -54,7 +54,7 @@
         <% n = 1 %>
         <div class="carousel-container-center">
           <% Album.first.photos.each do |photo| %>
-            <div class="carousel-item <%= "active" if n == 1 %>" data-interval="15000">
+            <div class="carousel-item <%= "active" if n == 1 %>" data-interval="15000" style="background-image: url('https://cloudinary.com/console/c-6096b5ff5c2b88dbf9e00702f14fe7/media_library/asset/image%2Fupload%2F850pvubpyhaehthcbxrbgsmkrco7/transform')">
               <div class="displayed-image" style="background-image: url('<%= cl_image_path photo.key, crop: :fill %>');">
                 <div class="carousel-container">
                   

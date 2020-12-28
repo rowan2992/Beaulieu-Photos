@@ -4,89 +4,93 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
-    <title>Carousel</title>
   </head>
   <body>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
     <style>
-      .carousel-container-center {
-        /* border: solid 2px; */
+      .carousel {
+        background: transparent;
+      }
+
+      .carousel-cell {
+        position: relative;
+        width: 800px;
+        height: 600px;
+        counter-increment: carousel-cell;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
+        align-items: center;
       }
-      .carousel-item {
-        height: 620px;
-        width: 100%;
-        margin: auto;
-        color: black;
+
+      .carousel-cell:before {
+        display: block;
         text-align: center;
-        /* border: solid 2px; */
+        content: counter(carousel-cell);
+        line-height: 400px;
+        font-size: 80px;
+        color: transparent;
       }
+
       .displayed-image {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
         width: 100%;
-        margin: 0 auto;
-        /* border: solid 2px; */
-        background-position: center;
-        background-size: cover;
+      }
+
+      .trash-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .flickity-page-dots {
+        bottom: -22px;
+      }
+      /* dots are lines */
+      .flickity-page-dots .dot {
+        height: 4px;
+        width: 48px;
+        margin: 0;
+        border-radius: 0;
+      }
+      /* no circle */
+      .flickity-button {
+        background: transparent;
+      }
+      /* big previous & next buttons */
+      .flickity-prev-next-button {
+        width: 64px;
+        height: 64px;
+      }
+      /* icon color */
+      .flickity-button-icon {
+        fill: white;
+      }
+      .flickity-button-icon:hover {
+        fill: #2C2C2C;
+      }
+      /* hide disabled button */
+      .flickity-button:disabled {
+        display: none;
+      }
+      .flickity-button:hover {
+        background: transparent;
       }
     </style>
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <% n = 0 %>
-        <% Album.first.photos.each do |photo| %>
-          <li data-target="#myCarousel" data-slide-to="<%= n %>"></li>
-          <% n += 1 %>
-        <% end %>
-      </ol>
-      
-      <div class="carousel-inner">
-        <% n = 1 %>
-        <div class="carousel-container-center">
-          <% Album.first.photos.each do |photo| %>
-            <div class="carousel-item <%= "active" if n == 1 %>" data-interval="15000" style="background-image: url('https://cloudinary.com/console/c-6096b5ff5c2b88dbf9e00702f14fe7/media_library/asset/image%2Fupload%2F850pvubpyhaehthcbxrbgsmkrco7/transform')">
-              <div class="displayed-image" style="background-image: url('<%= cl_image_path photo.key, crop: :fill %>');">
-                <div class="carousel-container">
-                  
-                </div>
-              </div>
-            </div>
-            <% n += 1 %>
-          <% end %>
+    <div class="carousel" data-flickity='{ "wrapAround": true }'>
+      <% Album.first.photos.each do |photo| %>
+        <div class="carousel-cell">
+          <div class="displayed-image"><%= cl_image_tag photo.key, width: 800, height: 600, crop: :fill %>
+            <div class="trash-btn"><%= link_to icon('fas', 'trash-alt'), destroy_photo_album_path(photo.signed_id), method: :delete, data: { confirm: 'Are you sure?' }, class: "post-delete-icon" %></div>
+          </div>
         </div>
-      </div>
-
-      <a href="#myCarousel" class="carousel-control-prev" role="button" data-slide="prev">
-        <span class="sr-only">Previous</span>
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      </a>
-
-      <a href="#myCarousel" class="carousel-control-next" role="button" data-slide="next">
-        <span class="sr-only">Next</span>
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      </a>
-      
+      <% end %>
     </div>
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-    -->
   </body>
 </html>
 

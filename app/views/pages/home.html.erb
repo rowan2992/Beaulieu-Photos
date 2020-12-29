@@ -1,7 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
-<div class="home-card">
-  <% Album.first.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 600, width: 600, crop: :fill %>
-  <% end %>
-</div>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <style>
+      .carousel {
+        background: transparent;
+      }
+
+      .carousel-cell {
+        position: relative;
+        width: 800px;
+        height: 600px;
+        counter-increment: carousel-cell;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .carousel-cell:before {
+        display: block;
+        text-align: center;
+        content: counter(carousel-cell);
+        line-height: 400px;
+        font-size: 80px;
+        color: transparent;
+      }
+
+      .displayed-image {
+        width: 100%;
+      }
+
+      .trash-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .flickity-page-dots {
+        bottom: -22px;
+        z-index: 999;
+      }
+      /* dots are lines */
+      .flickity-page-dots .dot {
+        height: 4px;
+        width: 48px;
+        margin: 0;
+        border-radius: 0;
+        background-color: white;
+      }
+      /* no circle */
+      .flickity-button {
+        background: transparent;
+      }
+      /* big previous & next buttons */
+      .flickity-prev-next-button {
+        width: 64px;
+        height: 64px;
+      }
+      /* icon color */
+      .flickity-button-icon {
+        fill: white;
+      }
+      .flickity-button-icon:hover {
+        fill: #2C2C2C;
+      }
+      /* hide disabled button */
+      .flickity-button:disabled {
+        display: none;
+      }
+      .flickity-button:hover {
+        background: transparent;
+      }
+    </style>
+
+    <div class="carousel" data-flickity='{ "wrapAround": true }'>
+      <% Album.first.photos.each do |photo| %>
+        <div class="carousel-cell">
+          <div class="displayed-image"><%= cl_image_tag photo.key, width: 800, height: 600, crop: :fill %>
+            <div class="trash-btn"><%= link_to icon('fas', 'trash-alt'), destroy_photo_album_path(photo.signed_id), method: :delete, data: { confirm: 'Are you sure?' }, class: "post-delete-icon" %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </body>
+</html>
+
+
 

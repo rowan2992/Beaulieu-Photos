@@ -7,6 +7,9 @@
   <%= f.button :submit %>
 <% end %>
 
+<%= link_to "Delete Album", album_path(@album), method: :delete, data: {confirm: "Are you sure you want to cancel this reservation?"} %>
+<%= link_to "back", albums_path %>
+
 <script
   src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
@@ -40,22 +43,24 @@
 
   .displayed-image {
     width: 100%;
+    a {
+      color: #2C2C2C;
+    }
   }
 
   .trash-btn {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 8px;
+    bottom: 8px;
   }
 
   .flickity-page-dots {
-    bottom: -22px;
-    z-index: 999;
+    bottom: 16px;
   }
   /* dots are lines */
   .flickity-page-dots .dot {
     height: 4px;
-    width: 48px;
+    width: 40px;
     margin: 0;
     border-radius: 0;
     background-color: white;
@@ -94,6 +99,3 @@
     </div>
   <% end %>
 </div>
-
-<%= link_to "Delete Album", album_path(@album), method: :delete, data: {confirm: "Are you sure you want to cancel this reservation?"} %>
-<%= link_to "back", albums_path %>

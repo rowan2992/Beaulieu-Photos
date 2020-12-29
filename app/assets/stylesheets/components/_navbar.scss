@@ -15,7 +15,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  box-shadow: #2C2C2C 1px 1px 1px 1px;
+  z-index: 999;
   .navbar-title-left {
     .title-link {
       color: white;

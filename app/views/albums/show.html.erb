@@ -1,4 +1,4 @@
-<h1>Album Show Page</h1>
+<h1><%= @album.name %></h1>
 
 <%= simple_form_for(@album) do |f| %>
   <%= f.input :name %>
@@ -21,19 +21,25 @@
 
   .carousel-cell {
     position: relative;
-    width: 66%;
+    width: 800px;
     height: 600px;
-    margin-right; 10px;
     counter-increment: carousel-cell;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .carousel-cell:before {
     display: block;
     text-align: center;
     content: counter(carousel-cell);
-    line-height: 600px;
+    line-height: 400px;
     font-size: 80px;
     color: transparent;
+  }
+
+  .displayed-image {
+    width: 100%;
   }
 
   .trash-btn {
@@ -41,23 +47,50 @@
     right: 0;
     top: 0;
   }
-  .carousel .carousel-cell {
-    display: block;
-    height: 200px;
-  }
 
-  @media screen and ( min-width: 768px ) {
-    .carousel .carousel-cell {
-      display: block;
-      height: 600px;
-    }
+  .flickity-page-dots {
+    bottom: -22px;
+    z-index: 999;
+  }
+  /* dots are lines */
+  .flickity-page-dots .dot {
+    height: 4px;
+    width: 48px;
+    margin: 0;
+    border-radius: 0;
+    background-color: white;
+  }
+  /* no circle */
+  .flickity-button {
+    background: transparent;
+  }
+  /* big previous & next buttons */
+  .flickity-prev-next-button {
+    width: 64px;
+    height: 64px;
+  }
+  /* icon color */
+  .flickity-button-icon {
+    fill: white;
+  }
+  .flickity-button-icon:hover {
+    fill: #2C2C2C;
+  }
+  /* hide disabled button */
+  .flickity-button:disabled {
+    display: none;
+  }
+  .flickity-button:hover {
+    background: transparent;
   }
 </style>
 
-<div class="carousel" data-flickity>
+<div class="carousel" data-flickity='{ "wrapAround": true }'>
   <% @album.photos.each do |photo| %>
-    <div class="carousel-cell" style="background-image: url('<%= cl_image_path photo.key, height: 600, crop: :fit %>')">
-      <div class="trash-btn"><%= link_to icon('fas', 'trash-alt'), destroy_photo_album_path(photo.signed_id), method: :delete, data: { confirm: 'Are you sure?' }, class: "post-delete-icon" %></div>
+    <div class="carousel-cell">
+      <div class="displayed-image"><%= cl_image_tag photo.key, width: 800, height: 600, crop: :fill %>
+        <div class="trash-btn"><%= link_to icon('fas', 'trash-alt'), destroy_photo_album_path(photo.signed_id), method: :delete, data: { confirm: 'Are you sure?' }, class: "post-delete-icon" %></div>
+      </div>
     </div>
   <% end %>
 </div>

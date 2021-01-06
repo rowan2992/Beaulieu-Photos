@@ -1,13 +1,22 @@
-<h1><%= @album.name %></h1>
+<div class="album-title"><h1><%= @album.name %></h1></div>
+<div class="form-container">
+  <%= simple_form_for(@album) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    </div>
+    
+    <div class="main-form-btn">
+      <%= f.button :submit, "Save changes", class: "devise-btn" %>
+    </div>
+    <div class="album-btns">
+      <%= link_to "Delete Album", album_path(@album), method: :delete, class: "delete-btn", data: {confirm: "Are you sure you want to cancel this reservation?"} %>
+      <%= link_to "back", albums_path, class: "back-btn" %>
+    </div>
+  <% end %>
+</div>
 
-<%= simple_form_for(@album) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.button :submit %>
-<% end %>
-<%= link_to "Delete Album", album_path(@album), method: :delete, data: {confirm: "Are you sure you want to cancel this reservation?"} %>
-<%= link_to "back", albums_path %>
 
 <script
   src="https://code.jquery.com/jquery-3.5.1.js"></script>

@@ -1,0 +1,72 @@
+.devise-btn {
+  border: 1px solid #152A43;
+  color:  #152A43;
+  border-radius: 10px;
+  font-family: 'Work Sans', 'sans-serif';
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 40px;
+  text-align: center;
+  width: 100%;
+
+  background-size: 100% 200%;
+  background-image: linear-gradient(to bottom, #FFFFFF 50%,  #152A43 50%);
+  transition:
+      background-position .4s ease-in-out,
+      color .4s ease-in-out;
+
+  &:hover, &:focus {
+    background-position: 0 100%;
+    color: #FFFFFF;
+  }
+}
+
+.delete-btn {
+  border: 1px solid #140202;
+  color:  #FFFFFF;
+  border-radius: 10px;
+  font-family: 'Work Sans', 'sans-serif';
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 40px;
+  text-align: center;
+
+  background-size: 100% 200%;
+  background-image: linear-gradient(to bottom, #7c1212 50%, #140202 50%);
+  transition:
+      background-position .4s ease-in-out,
+      color .4s ease-in-out;
+
+  &:hover, &:focus {
+    background-position: 0 100%;
+    color: #FFFFFF;
+  }
+}
+
+.back-btn {
+  border: 1px solid #140202;
+  color:  #FFFFFF;
+  border-radius: 10px;
+  font-family: 'Work Sans', 'sans-serif';
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 40px;
+  text-align: center;
+
+  background-size: 100% 200%;
+  background-image: linear-gradient(to bottom, #437700 50%, #1daf00 50%);
+  transition:
+      background-position .4s ease-in-out,
+      color .4s ease-in-out;
+
+  &:hover, &:focus {
+    background-position: 0 100%;
+    color: #FFFFFF;
+  }
+}

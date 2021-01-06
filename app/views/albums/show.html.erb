@@ -6,7 +6,6 @@
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.button :submit %>
 <% end %>
-
 <%= link_to "Delete Album", album_path(@album), method: :delete, data: {confirm: "Are you sure you want to cancel this reservation?"} %>
 <%= link_to "back", albums_path %>
 
@@ -38,7 +37,7 @@
     content: counter(carousel-cell);
     line-height: 400px;
     font-size: 80px;
-    color: transparent;
+    color: transparent; 
   }
 
   .displayed-image {

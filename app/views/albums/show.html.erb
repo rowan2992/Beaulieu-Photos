@@ -1,4 +1,4 @@
-<div class="form-container" id="edit-form">
+<div class="form-container hidden" id="edit-form">
   <%= simple_form_for(@album) do |f| %>
     <div class="form-inputs">
       <%= f.input :name %>
@@ -15,9 +15,6 @@
     </div>
   <% end %>
 </div>
-
-<a class="back-btn" id="hide-btn" href="#">Edit</a>
-
 
 <script
   src="https://code.jquery.com/jquery-3.5.1.js"></script>

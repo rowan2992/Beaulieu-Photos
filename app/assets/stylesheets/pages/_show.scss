@@ -1,6 +1,7 @@
 .form-title {
   text-align: center;
   margin: 24px auto 0;
+  font-family: "Lucida Console", "Courier New", monospace;
 }
 
 .form-container {
@@ -8,6 +9,7 @@
   width: 500px;
   text-align: left;
 }
+
 .main-form-btn {
   margin-bottom: 16px; 
   width: 500px;
@@ -15,7 +17,6 @@
 }
 
 .album-btns {
-  
   width: 500px;
   display: flex;
   justify-content: space-between;
@@ -24,4 +25,8 @@
 
 .form-inputs {
   font-weight: 600;
+}
+
+.hidden {
+  display: none;
 }

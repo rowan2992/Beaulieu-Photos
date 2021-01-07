@@ -1,5 +1,4 @@
-<div class="form-title"><h1><%= @album.name %></h1></div>
-<div class="form-container">
+<div class="form-container" id="edit-form">
   <%= simple_form_for(@album) do |f| %>
     <div class="form-inputs">
       <%= f.input :name %>
@@ -16,6 +15,8 @@
     </div>
   <% end %>
 </div>
+
+<a class="back-btn" id="hide-btn" href="#">Edit</a>
 
 
 <script

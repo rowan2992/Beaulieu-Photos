@@ -10,7 +10,7 @@
       <ul>
         <% Album.all.each do |album| %>
           <% if album.id == params[:id].to_i %>
-            <li><%= link_to album.name, album_path(album), class: "av-link current-album" %></li>
+            <li><%= link_to album.name, album_path(album), class: "av-link current-album" %> <a id="hide-btn" href="#"><%= icon('fas', 'edit') %></a></li>
           <% else %>
             <li><%= link_to album.name, album_path(album), class: "av-link" %></li>
           <% end %>
@@ -23,4 +23,4 @@
       <p>About</p>
     </div>
 </div>
-<div class="edit-btn"><a id="hide-btn" href="#">Edit</a></div>
+

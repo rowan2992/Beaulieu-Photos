@@ -5,6 +5,7 @@
   height: 100px;
   background: transparent;
   z-index: 900;
+  margin-bottom: 24px;
 }
 
 .navbar {
@@ -71,5 +72,8 @@
   z-index: 999;
   text-align: center;
   box-shadow: #2C2C2C 1px 1px 1px 1px;
-  margin-bottom: 0px;
+}
+
+#hide-btn {
+  color: white;
 }

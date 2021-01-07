@@ -1,6 +1,6 @@
 .devise-btn {
   border: 1px solid #152A43;
-  color:  #152A43;
+  color:  #FFFFFF;
   border-radius: 10px;
   font-family: 'Work Sans', 'sans-serif';
   font-size: 16px;
@@ -12,14 +12,14 @@
   width: 100%;
 
   background-size: 100% 200%;
-  background-image: linear-gradient(to bottom, #FFFFFF 50%,  #152A43 50%);
+  background-image: linear-gradient(to bottom, #152A43 50%,  #FFFFFF 50%);
   transition:
-      background-position .4s ease-in-out,
+      background-position .2s ease-in-out,
       color .4s ease-in-out;
 
   &:hover, &:focus {
     background-position: 0 100%;
-    color: #FFFFFF;
+    color: #152A43;
   }
 }
 
@@ -36,14 +36,14 @@
   text-align: center;
 
   background-size: 100% 200%;
-  background-image: linear-gradient(to bottom, #7c1212 50%, #140202 50%);
+  background-image: linear-gradient(to bottom, #81171b 50%, #FFFFFF 50%);
   transition:
-      background-position .4s ease-in-out,
+      background-position .2s ease-in-out,
       color .4s ease-in-out;
 
   &:hover, &:focus {
     background-position: 0 100%;
-    color: #FFFFFF;
+    color: #152A43;
   }
 }
 
@@ -60,13 +60,13 @@
   text-align: center;
 
   background-size: 100% 200%;
-  background-image: linear-gradient(to bottom, #437700 50%, #1daf00 50%);
+  background-image: linear-gradient(to bottom, #315c2b 50%, #FFFFFF 50%);
   transition:
-      background-position .4s ease-in-out,
+      background-position .2s ease-in-out,
       color .4s ease-in-out;
 
   &:hover, &:focus {
     background-position: 0 100%;
-    color: #FFFFFF;
+    color: #152A43;
   }
 }

@@ -9,7 +9,11 @@
     <div class="navbar-albums-center">
       <ul>
         <% Album.all.each do |album| %>
-          <li><%= link_to album.name, album_path(album), class: "av-link" %></li>
+          <% if album.id == params[:id].to_i %>
+            <li><%= link_to album.name, album_path(album), class: "av-link current-album" %></li>
+          <% else %>
+            <li><%= link_to album.name, album_path(album), class: "av-link" %></li>
+          <% end %>
         <% end %>
         <li><%= link_to "+", new_album_path, class: "av-link" %></li>
       </ul>

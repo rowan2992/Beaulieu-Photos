@@ -11,6 +11,7 @@
         <% Album.all.each do |album| %>
           <li><%= link_to album.name, album_path(album), class: "av-link" %></li>
         <% end %>
+        <li><%= link_to "+", new_album_path, class: "av-link" %></li>
       </ul>
     </div>
 

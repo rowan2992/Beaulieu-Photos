@@ -15,7 +15,12 @@
     </div>
 
     <div class="footer-right">
-      <p></p>
+      <% if user_signed_in? %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "av-link" %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class: "av-link" %>
+        <%= link_to "Sign up", new_user_registration_path, class: "av-link" %>
+      <% end %>
     </div>
 
 </div>

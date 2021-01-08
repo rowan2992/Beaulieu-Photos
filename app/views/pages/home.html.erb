@@ -81,7 +81,7 @@
       <% Album.first.photos.each do |photo| %>
         <div class="carousel-cell">
           <div class="displayed-image"><%= cl_image_tag photo.key, width: 800, height: 600, crop: :fill %>
-            <div class="trash-btn"><%= link_to icon('fas', 'trash-alt'), destroy_photo_album_path(photo.signed_id), method: :delete, data: { confirm: 'Are you sure?' }, class: "post-delete-icon" %></div>
+            <div class="trash-btn hidden"><%= link_to icon('fas', 'trash-alt'), destroy_photo_album_path(photo.signed_id), method: :delete, data: { confirm: 'Are you sure?' }, class: "post-delete-icon" %></div>
           </div>
         </div>
       <% end %>

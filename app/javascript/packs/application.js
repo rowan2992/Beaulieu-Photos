@@ -22,6 +22,7 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 import { toggleEditForm } from '../components/hide.js';
+import { navSlide } from '../components/navbar.js';
 
 // External imports
 import "bootstrap";
@@ -31,4 +32,5 @@ import "bootstrap";
 
 document.addEventListener('turbolinks:load', () => {
   toggleEditForm();
+  navSlide();
 });

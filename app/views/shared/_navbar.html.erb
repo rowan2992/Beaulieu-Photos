@@ -1,34 +1,33 @@
-<div class="navbar-container">
+
+
+<nav>
+  <div class="logo">
+    <%= link_to "Keegan Beaulieu", root_path %>
+  </div>
   
-  <div class="navbar">
-
-    <div class="navbar-title-left">
-      <%= link_to "Keegan Beaulieu", root_path, class: "title-link" %>
-    </div>
-
-    <div class="navbar-albums-center">
-      <ul>
-        <% Album.all.each do |album| %>
-          
-          <% if album.id == params[:id].to_i %>
-            <li>
-              <%= link_to album.name, album_path(album), class: "av-link current-album" %>
-              <% if current_user && current_user.admin %>
-                <a id="hide-btn" href="#"><%= icon('fas', 'edit') %></a>
-              <% end %>
-            </li>
-          <% else %>
-            <li><%= link_to album.name, album_path(album), class: "av-link" %></li>
+  <ul class="nav-links">
+    <% Album.all.each do |album| %>
+      <% if album.id == params[:id].to_i %>
+        <li>
+          <%= link_to album.name, album_path(album), class: "current-album" %>
+          <% if current_user && current_user.admin %>
+            <a id="hide-btn" href="#"><%= icon('fas', 'edit') %></a>
           <% end %>
-        <% end %>
-        <% if current_user && current_user.admin %>
-          <li><%= link_to icon('fas', 'plus'), new_album_path, class: "av-link" %></li>
-        <% end %>
-      </ul>
-    </div>
+        </li>
+      <% else %>
+        <li><%= link_to album.name, album_path(album) %></li>
+      <% end %>
+    <% end %>
+    <% if current_user && current_user.admin %>
+      <li><%= link_to icon('fas', 'plus'), new_album_path %></li>
+    <% end %>
+  </ul>
 
-    <div class="navbar-title-right">
-      <p>About</p>
-    </div>
-</div>
+  <div class="burger">
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>  
+  </div>
+</nav>
+
 

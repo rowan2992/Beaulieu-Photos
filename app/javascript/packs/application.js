@@ -24,8 +24,10 @@ require("channels")
 import { toggleEditForm } from '../components/hide.js';
 import { navSlide } from '../components/navbar.js';
 
+//navSlide();
+
 // External imports
-import "bootstrap";
+// import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';

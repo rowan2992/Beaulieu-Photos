@@ -25,14 +25,24 @@ nav {
 
 .nav-links {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  width: 30%;
+  width: 60%;
+  margin-bottom: 0;
+}
+
+.about p {
+  color: rgb(226, 226, 226);
+  letter-spacing: 2px;
+  font-size: 18px;
+  font-weight: 500;
   margin-bottom: 0;
 }
 
 .nav-links li {
   list-style: none;
+  margin-left: 24px;
+  margin-right: 24px;
 }
 
 .nav-links a {

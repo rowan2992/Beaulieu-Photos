@@ -21,6 +21,12 @@ nav {
   letter-spacing: 3px;
   font-size: 20px;
   font-weight: 500;
+  transition: color 0.4s ease;
+}
+
+.logo a:hover {
+  color: rgb(97, 250, 255);
+  text-decoration: none;
 }
 
 .nav-links {
@@ -35,6 +41,10 @@ nav {
   list-style: none;
   margin-left: 24px;
   margin-right: 24px;
+  :hover {
+    font-weight: 600;
+    color: rgb(0, 183, 255);
+  }
 }
 
 .nav-links a {
@@ -65,6 +75,12 @@ nav {
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 0;
+}
+
+.about-top a:hover {
+  font-weight: 600;
+  color: rgb(0, 183, 255);
+  text-decoration: none;
 }
 
 .about-side {

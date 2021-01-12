@@ -6,6 +6,7 @@
   </div>
   
   <ul class="nav-links">
+    <li class="about-side"><a href="/">About</a></li>
     <% Album.all.each do |album| %>
       <% if album.id == params[:id].to_i %>
         <li>
@@ -23,7 +24,7 @@
     <% end %>
   </ul>
 
-  <div class="about"><a href="/"><p>About</p></a></div>
+  <div class="about-top"><a href="/">About</a></div>
 
   <div class="burger">
     <div class="line1"></div>

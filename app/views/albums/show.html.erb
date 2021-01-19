@@ -16,12 +16,13 @@
   <% end %>
 </div>
 
-<script
-  src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-
-<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<head>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/flickity-fullscreen@1/fullscreen.css">
+  <script src="https://unpkg.com/flickity-fullscreen@1/fullscreen.js"></script>
+</head>
 
 <style>
   .carousel {
@@ -30,7 +31,6 @@
 
   .carousel-cell {
     position: relative;
-    width: 800px;
     height: 600px;
     counter-increment: carousel-cell;
     display: flex;
@@ -40,15 +40,22 @@
 
   .carousel-cell:before {
     display: block;
+    width: 0;
     text-align: center;
     content: counter(carousel-cell);
     line-height: 400px;
-    font-size: 80px;
-    color: transparent; 
+    color: transparent;
   }
 
   .displayed-image {
-    width: 100%;
+    display: block;
+    height: 600px;
+    /* set min-width,
+      allow images to determine cell width */
+    min-width: 150px;
+    max-width: 100%;
+    /* vertically center */
+    transform: translateY(0%)
     a {
       color: #2C2C2C;
     }
@@ -94,12 +101,16 @@
   .flickity-button:hover {
     background: transparent;
   }
+
+  .carousel.is-fullscreen .carousel-cell {
+    height: 100%;
+  }
 </style>
 
 <div class="carousel" data-flickity='{ "wrapAround": true }'>
   <% @album.photos.each do |photo| %>
     <div class="carousel-cell">
-      <div class="displayed-image"><%= cl_image_tag photo.key, width: 800, height: 600, crop: :fill %>
+      <div class="displayed-image"><%= cl_image_tag photo.key, height: 600, crop: :fill %>
         <div class="trash-btn hidden"><%= link_to icon('fas', 'trash-alt'), destroy_photo_album_path(photo.signed_id), method: :delete, data: { confirm: 'Are you sure you want to delete this photo?' }, class: "post-delete-icon" %></div>
       </div>
     </div>

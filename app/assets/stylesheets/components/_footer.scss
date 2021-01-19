@@ -4,7 +4,7 @@
   width: 100%;
   height: 100px;
   background: transparent;
-  z-index: 900;
+  z-index: 0;
 }
 
 .footer {
@@ -19,7 +19,7 @@
   z-index: 999;
   .footer-left {
     p {
-      color: white;
+      color: rgb(226, 226, 226);
       font-size: 18px;
       margin: 0;
       text-decoration: none;
@@ -43,21 +43,25 @@
         font-weight: 500;
         a {
           text-decoration: none;
-          color: white;
+          color: rgb(226, 226, 226);
+          :hover {
+            font-weight: 600;
+            color: rgb(255, 255, 255);;
+          }
         }
       }
     }
     .av-link {
-      color: white;
+      color: rgb(226, 226, 226);
     }
   }
 
   .footer-right {
     display: flex;
     justify-content: space-between;
-    p {
-      color: white;
-      font-size: 20px;
+    a {
+      color: rgb(226, 226, 226);
+      font-size: 16px;
       margin: 0;
     }
   }

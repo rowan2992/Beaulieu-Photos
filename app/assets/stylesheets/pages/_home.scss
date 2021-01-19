@@ -11,7 +11,6 @@
 
 .carousel-cell {
   position: relative;
-  width: 800px;
   height: 600px;
   counter-increment: carousel-cell;
   display: flex;
@@ -21,32 +20,43 @@
 
 .carousel-cell:before {
   display: block;
+  width: 0;
   text-align: center;
   content: counter(carousel-cell);
   line-height: 400px;
-  font-size: 80px;
   color: transparent;
 }
 
 .displayed-image {
-  width: 100%;
+  display: block;
+  height: 600px;
+  /* set min-width,
+    allow images to determine cell width */
+  min-width: 150px;
+  max-width: 100%;
+  /* vertically center */
+  transform: translateY(0%)
+  a {
+    color: #2C2C2C;
+  }
 }
 
 .trash-btn {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 8px;
+  bottom: 8px;
 }
 
 .flickity-page-dots {
-  bottom: -22px;
+  bottom: 16px;
 }
 /* dots are lines */
 .flickity-page-dots .dot {
   height: 4px;
-  width: 48px;
+  width: 40px;
   margin: 0;
   border-radius: 0;
+  background-color: white;
 }
 /* no circle */
 .flickity-button {
@@ -70,4 +80,8 @@
 }
 .flickity-button:hover {
   background: transparent;
+}
+
+.carousel.is-fullscreen .carousel-cell {
+  height: 100%;
 }

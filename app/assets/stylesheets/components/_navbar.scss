@@ -1,63 +1,158 @@
-.navbar-container {
-  position: relative;
-  top: 0;
-  width: 100%;
-  height: 100px;
-  background: transparent;
-  z-index: 900;
-  margin-bottom: 24px;
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
-.navbar {
-  padding: 0 80px;
-  width: 100%;
-  height: 100px;
-  background: #2C2C2C;
+nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  box-shadow: #2C2C2C 1px 1px 1px 1px;
-  z-index: 999;
-  .navbar-title-left {
-    .title-link {
-      color: white;
-      font-size: 24px;
-      margin: 0;
-      text-decoration: none;
-    }
-  }
-  
-  .navbar-albums-center {
-    display: flex;
-    justify-content: space-between;
-    ul {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      li {
-        display: inline;
-        padding: 0 40px 0 40px;
-        text-decoration: none;
-      }
-    }
-    .av-link {
-      color: white;
-    }
-  }
+  min-height: 12vh;
+  background-color: #2C2C2C;
+  font-family: 'Poppins', sans-serif;
+}
 
-  .navbar-title-right {
-    display: flex;
-    justify-content: space-between;
-    p {
-      color: white;
-      font-size: 20px;
-      margin: 0;
-    }
+.logo a {
+  color: rgb(226, 226, 226);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 20px;
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.logo a:hover {
+  color: rgb(255, 255, 255);
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  margin-bottom: 0;
+}
+
+.nav-links li {
+  list-style: none;
+  margin-left: 24px;
+  margin-right: 24px;
+  :hover {
+    color: rgb(255, 255, 255);
   }
 }
+
+.nav-links a {
+  color: rgb(226, 226, 226);
+  text-decoration: none;
+  list-style: none;
+  letter-spacing: 3px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.burger {
+  display: none;
+  transition: color 0.3s ease;
+}
+
+.burger div {
+  height: 2px;
+  width: 24px;
+  margin: 5px;
+  background-color: rgb(226, 226, 226);
+  transition: all 0.3s ease;
+}
+
+.burger:hover {
+  div {
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+.about-top a{
+  display: block;
+  color: rgb(226, 226, 226);
+  letter-spacing: 2px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.about-top a:hover {
+  color: rgb(255, 255, 255);
+}
+
+.about-side {
+  display: none;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px){
+  .about-top {
+    display: none;
+  }
+  .about-side {
+    display: block;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  .nav-links {
+    position: absolute;
+    right: 0;
+    top: 8vh;
+    height: 92vh;
+    background-color: #2C2C2C;
+    z-index: 998;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in; 
+  }
+  .nav-links li {
+    z-index: 999;
+    opacity: 0;
+  }
+  .burger {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+.nav-active {
+  transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+  from{
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px,5px);
+}
+.toggle .line2 {
+  opacity: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px,-5px);
+}
+
+
+
 
 .current-album {
   text-decoration: underline;
@@ -75,5 +170,5 @@
 }
 
 #hide-btn {
-  color: white;
+  color: rgb(231, 231, 231);
 }

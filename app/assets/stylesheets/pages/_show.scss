@@ -31,6 +31,87 @@
   display: none;
 }
 
+.carousel {
+  background: transparent;
+}
+
+.carousel-cell {
+  position: relative;
+  height: 600px;
+  counter-increment: carousel-cell;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-cell:before {
+  display: block;
+  width: 0;
+  text-align: center;
+  content: counter(carousel-cell);
+  line-height: 400px;
+  color: transparent;
+}
+
+.displayed-image {
+  display: block;
+  height: 600px;
+  /* set min-width,
+    allow images to determine cell width */
+  min-width: 150px;
+  max-width: 100%;
+  /* vertically center */
+  transform: translateY(0%)
+  a {
+    color: #2C2C2C;
+  }
+}
+
+.trash-btn {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}
+
+.flickity-page-dots {
+  bottom: 16px;
+}
+/* dots are lines */
+.flickity-page-dots .dot {
+  height: 4px;
+  width: 40px;
+  margin: 0;
+  border-radius: 0;
+  background-color: white;
+}
+/* no circle */
+.flickity-button {
+  background: transparent;
+}
+/* big previous & next buttons */
+.flickity-prev-next-button {
+  width: 64px;
+  height: 64px;
+}
+/* icon color */
+.flickity-button-icon {
+  fill: white;
+}
+.flickity-button-icon:hover {
+  fill: #2C2C2C;
+}
+/* hide disabled button */
+.flickity-button:disabled {
+  display: none;
+}
+.flickity-button:hover {
+  background: transparent;
+}
+
+.carousel.is-fullscreen .carousel-cell {
+  height: 100%;
+}
+
 @media screen and (max-width: 768px){
   .form-container {
     width: 90%;

@@ -1,3 +1,9 @@
+<head>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+</head>
+
 <div class="form-container hidden" id="edit-form">
   <%= simple_form_for(@album) do |f| %>
     <div class="form-inputs">
@@ -15,12 +21,6 @@
     </div>
   <% end %>
 </div>
-
-<head>
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-</head>
 
 <style>
   .carousel {
@@ -105,7 +105,7 @@
   }
 </style>
 
-<div class="carousel" data-flickity='{ "wrapAround": true }'>
+<div class="my-carousel" data-flickity='{ "wrapAround": true, "imagesLoaded": true }'>
   <% @album.photos.each do |photo| %>
     <div class="carousel-cell">
       <div class="displayed-image"><%= cl_image_tag photo.key, height: 600, crop: :fill %>

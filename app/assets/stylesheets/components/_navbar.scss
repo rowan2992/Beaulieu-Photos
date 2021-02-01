@@ -11,12 +11,12 @@ nav {
   justify-content: space-around;
   align-items: center;
   min-height: 12vh;
-  background-color: #2C2C2C;
+  background-color: $dark-grey;
   font-family: 'Poppins', sans-serif;
 }
 
 .logo a {
-  color: rgb(226, 226, 226);
+  color: $off-white;
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 20px;
@@ -25,7 +25,7 @@ nav {
 }
 
 .logo a:hover {
-  color: rgb(255, 255, 255);
+  color: $bright-white;
 }
 
 .nav-links {
@@ -41,12 +41,12 @@ nav {
   margin-left: 24px;
   margin-right: 24px;
   :hover {
-    color: rgb(255, 255, 255);
+    color: $bright-white;
   }
 }
 
 .nav-links a {
-  color: rgb(226, 226, 226);
+  color: $off-white;
   text-decoration: none;
   list-style: none;
   letter-spacing: 3px;
@@ -63,19 +63,19 @@ nav {
   height: 2px;
   width: 24px;
   margin: 5px;
-  background-color: rgb(226, 226, 226);
+  background-color: $off-white;
   transition: all 0.3s ease;
 }
 
 .burger:hover {
   div {
-    background-color: rgb(255, 255, 255);
+    background-color: $bright-white;
   }
 }
 
 .about-top a{
   display: block;
-  color: rgb(226, 226, 226);
+  color: $off-white;
   letter-spacing: 2px;
   font-size: 18px;
   font-weight: 500;
@@ -83,7 +83,7 @@ nav {
 }
 
 .about-top a:hover {
-  color: rgb(255, 255, 255);
+  color: $bright-white;
 }
 
 .about-side {
@@ -106,7 +106,7 @@ nav {
     right: 0;
     top: 8vh;
     height: 92vh;
-    background-color: #2C2C2C;
+    background-color: $dark-grey;
     z-index: 998;
     display: flex;
     flex-direction: column;
@@ -151,9 +151,6 @@ nav {
   transform: rotate(45deg) translate(-5px,-5px);
 }
 
-
-
-
 .current-album {
   text-decoration: underline;
 }
@@ -161,14 +158,14 @@ nav {
 .edit-btn {
   position: absolute;
   width: 100%;
-  background-color: #474747;
+  background-color: $dark-grey;
   height: 24px;
   bottom: -24px;
   z-index: 999;
   text-align: center;
-  box-shadow: #2C2C2C 1px 1px 1px 1px;
+  box-shadow: $dark-grey 1px 1px 1px 1px;
 }
 
 #hide-btn {
-  color: rgb(231, 231, 231);
+  color: $off-white;
 }
